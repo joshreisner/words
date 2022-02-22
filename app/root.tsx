@@ -8,9 +8,15 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 
+import styles from "./tailwind.css";
+
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
+
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}
 
 export default function App() {
   return (
@@ -21,14 +27,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        style={{
-          backgroundColor: "#222",
-          color: "#ddd",
-          fontFamily: "monospace",
-          lineHeight: "1.4",
-        }}
-      >
+      <body className="bg-gray-900">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
